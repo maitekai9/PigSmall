@@ -1,7 +1,9 @@
 package com.qkk.pigsmall.controller;
 
 import com.qkk.pigsmall.service.GlobalConfigService;
+import org.springframework.http.HttpMethod;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -19,8 +21,13 @@ public class GlobalConfigController {
     @Resource
     GlobalConfigService globalConfigService;
 
-    @RequestMapping("/queryAll")
+    @RequestMapping(value = "/queryAll", method = {RequestMethod.GET, RequestMethod.POST})
     Object queryAll() {
         return globalConfigService.getList();
+    }
+
+    @RequestMapping(value = "/query", method = {RequestMethod.GET, RequestMethod.POST})
+    Object query(String name) {
+        return globalConfigService.query(name);
     }
 }
