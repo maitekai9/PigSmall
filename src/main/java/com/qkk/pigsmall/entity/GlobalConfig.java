@@ -17,7 +17,7 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "global_config")
-@Where(clause = "is_delete = 0")
+@Where(clause = "is_deleted = 0")
 public class GlobalConfig extends BaseCacheObject {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
