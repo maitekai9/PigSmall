@@ -5,7 +5,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 
 public abstract class BaseCache<K, V extends BaseCacheObject> {
-    private Map<K, V> cacheMap = new ConcurrentHashMap<>();
+    private final Map<K, V> cacheMap = new ConcurrentHashMap<>();
 
     protected abstract int getCacheSize();
 
