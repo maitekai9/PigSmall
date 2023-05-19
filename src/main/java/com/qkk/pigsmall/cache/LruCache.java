@@ -3,15 +3,8 @@ package com.qkk.pigsmall.cache;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
+import java.util.concurrent.locks.ReentrantLock;
 
-/**
- * @ClassName LruCache.java
- * @Author Maitekai
- * @Version 1.0.0
- * @Description
- * @CreateTime 2022年09月17日 09:14:36
- */
 public class LruCache<V> {
     class Node {
         String key;
@@ -37,7 +30,7 @@ public class LruCache<V> {
         this.capacity = capacity;
         doubleNodes = new Node("", null);
         cacheMap = new HashMap<>();
-        lock = new ReentrantReadWriteLock().writeLock();
+        lock = new ReentrantLock();
     }
 
     private void add(Node node) {
