@@ -9,4 +9,8 @@ package com.qkk.pigsmall.utils;
  */
 public class Constant {
     public static final String DATA = "data";
+    public static final String ITEMS = "items";
+    public static final String SUCCESS = "success";
+    public static final String FAILED = "failed";
+    public static final String OK = "ok";
 }

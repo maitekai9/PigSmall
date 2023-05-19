@@ -5,6 +5,8 @@ import com.qkk.pigsmall.entity.GlobalConfig;
 import com.qkk.pigsmall.mapper.GlobalConfigMapper;
 import com.qkk.pigsmall.repository.GlobalConfigRepository;
 import com.qkk.pigsmall.utils.Constant;
+import com.qkk.pigsmall.utils.response.ErrorCode;
+import com.qkk.pigsmall.utils.response.PigException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,13 +34,17 @@ public class GlobalConfigService {
     public Map<String, Object> getList() {
         List<GlobalConfig> globalConfigs = globalConfigRepository.findAll();
         Map<String, Object> data = new HashMap<>();
-        data.put(Constant.DATA, globalConfigs);
+        data.put(Constant.ITEMS, globalConfigs);
         return data;
     }
 
-    public Map<String, Object> query(String name) {
+    public Map<String, Object> query(String name) throws PigException {
         Map<String, Object> data = new HashMap<>();
-        data.put(Constant.DATA, globalConfigCache.getByName(name));
+        GlobalConfig globalConfig = globalConfigCache.getByName(name);
+        if (globalConfig == null) {
+            throw new PigException(ErrorCode.GLOBAL_CONFIG_NOT_EXISTS);
+        }
+        data.put(Constant.ITEMS, globalConfig);
         return data;
     }
 }
