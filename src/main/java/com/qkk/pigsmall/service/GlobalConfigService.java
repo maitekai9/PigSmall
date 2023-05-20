@@ -31,7 +31,7 @@ public class GlobalConfigService {
     GlobalConfigCache globalConfigCache;
 
     public Map<String, Object> getList() {
-        List<GlobalConfig> globalConfigs = globalConfigMapper.selectConfigList();
+        List<GlobalConfig> globalConfigs = globalConfigMapper.getConfigList();
         Map<String, Object> data = new HashMap<>();
         data.put(Constant.ITEMS, globalConfigs);
         return data;
