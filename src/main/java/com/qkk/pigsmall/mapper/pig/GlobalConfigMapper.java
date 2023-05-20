@@ -1,6 +1,6 @@
-package com.qkk.pigsmall.mapper;
+package com.qkk.pigsmall.mapper.pig;
 
-import com.qkk.pigsmall.entity.GlobalConfig;
+import com.qkk.pigsmall.entity.pig.GlobalConfig;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -13,6 +13,6 @@ import java.util.List;
  * @CreateTime 2023年05月18日 20:58:19
  */
 public interface GlobalConfigMapper {
-    @Select(value = "select id, name, value, create_time as createTime, modify_time as modifyTime, is_deleted as isDeleted from global_config")
+    @Select(value = "select id, name, value, created_time as createdTime, modified_time as modifiedTime, is_deleted as isDeleted from global_config")
     List<GlobalConfig> selectConfigList();
 }

@@ -1,6 +1,6 @@
-package com.qkk.pigsmall.repository;
+package com.qkk.pigsmall.repository.pig;
 
-import com.qkk.pigsmall.entity.GlobalConfig;
+import com.qkk.pigsmall.entity.pig.GlobalConfig;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

@@ -1,13 +1,12 @@
 package com.qkk.pigsmall.service;
 
 import com.qkk.pigsmall.cache.GlobalConfigCache;
-import com.qkk.pigsmall.entity.GlobalConfig;
-import com.qkk.pigsmall.mapper.GlobalConfigMapper;
-import com.qkk.pigsmall.repository.GlobalConfigRepository;
+import com.qkk.pigsmall.entity.pig.GlobalConfig;
+import com.qkk.pigsmall.mapper.pig.GlobalConfigMapper;
+import com.qkk.pigsmall.repository.pig.GlobalConfigRepository;
 import com.qkk.pigsmall.utils.Constant;
 import com.qkk.pigsmall.utils.response.ErrorCode;
 import com.qkk.pigsmall.utils.response.PigException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -32,7 +31,7 @@ public class GlobalConfigService {
     GlobalConfigCache globalConfigCache;
 
     public Map<String, Object> getList() {
-        List<GlobalConfig> globalConfigs = globalConfigRepository.findAll();
+        List<GlobalConfig> globalConfigs = globalConfigMapper.selectConfigList();
         Map<String, Object> data = new HashMap<>();
         data.put(Constant.ITEMS, globalConfigs);
         return data;

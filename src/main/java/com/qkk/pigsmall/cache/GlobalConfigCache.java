@@ -1,7 +1,7 @@
 package com.qkk.pigsmall.cache;
 
-import com.qkk.pigsmall.entity.GlobalConfig;
-import com.qkk.pigsmall.repository.GlobalConfigRepository;
+import com.qkk.pigsmall.entity.pig.GlobalConfig;
+import com.qkk.pigsmall.repository.pig.GlobalConfigRepository;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
